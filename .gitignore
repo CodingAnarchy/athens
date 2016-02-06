@@ -1,4 +1,5 @@
 # Compiled outputs
 *.o
+*.h.gch
 tst/run_tests
 src/sim
