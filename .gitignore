@@ -1,0 +1,4 @@
+# Compiled outputs
+*.o
+tst/run_tests
+src/sim
