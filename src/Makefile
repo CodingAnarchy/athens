@@ -1,8 +1,17 @@
+IDIR = ../lib
 CXX = g++
-CXXFLAGS = -std=c++11 -I.
+CXXFLAGS = -std=c++11 -I$(IDIR)
+ODIR = ../obj
+DEPS = rectangle.h
 
-sim: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp -o sim
+_OBJ = rectangle.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+$(ODIR)/%.o: $(IDIR)/%.cpp $(IDIR)/%.h
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
+
+sim: main.cpp $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 .PHONY: clean
 

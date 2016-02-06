@@ -1,9 +1,16 @@
 #include <iostream>
+#include <sstream>
 #include <thread>
 using namespace std;
 
+#include "rectangle.h"
+
 void print_hello(){
-  fprintf(stdout, "Hello, World!\n");
+  stringstream id;
+  id << this_thread::get_id();
+  Rectangle rect = Rectangle(5, 3 * 2);
+  fprintf(stdout, "Hello, World! This is thread %s.\n", id.str().c_str());
+  fprintf(stdout, "Thread %s made a rectangle with area %d.\n", id.str().c_str(), rect.area());
 }
 
 int main() {
