@@ -1,9 +1,6 @@
 #include <iostream>
 #include "gtest/gtest.h"
-
-TEST(blahTest, blah) {
-  EXPECT_EQ(1, 1);
-}
+#include "test_rectangle.cc"
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
