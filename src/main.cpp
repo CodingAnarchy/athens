@@ -1,23 +1,25 @@
 #include <iostream>
 #include <sstream>
 #include <thread>
+#include <vector>
 using namespace std;
 
 #include "rectangle.h"
 
-void print_hello(){
-  stringstream id;
-  id << this_thread::get_id();
-  Rectangle rect = Rectangle(5, 3 * 2);
-  fprintf(stdout, "Hello, World! This is thread %s.\n", id.str().c_str());
-  fprintf(stdout, "Thread %s made a rectangle with area %d.\n", id.str().c_str(), rect.area());
+void print_hello(int id){
+  Rectangle rect = Rectangle(id, id * 2);
+  fprintf(stdout, "Thread %d made a rectangle with area %d.\n", id, rect.area());
 }
 
 int main() {
-    thread t1(print_hello);
-    thread t2(print_hello);
+    vector<thread> threads(5);
+    for (unsigned int i=0; i < threads.size(); i++) {
+      threads.at(i) = thread(print_hello, i + 1);
+    }
 
-    t1.join();
-    t2.join();
+    for (unsigned int i=0; i < threads.size(); i++) {
+      threads.at(i).join();
+    }
+
     return 0;
 }
