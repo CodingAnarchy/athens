@@ -2,18 +2,23 @@ IDIR = ../lib
 CXX = g++
 CXXFLAGS = -std=c++11 -I$(IDIR)
 ODIR = ../obj
-DEPS = rectangle.h
 
-_OBJ = rectangle.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+STRUCTURE := $(shell find $(IDIR) -type d)
+CODEFILES := $(addsuffix /*,$(STRUCTURE))
+CODEFILES := $(wildcard $(CODEFILES))
 
-$(ODIR)/%.o: $(IDIR)/%.cpp $(IDIR)/%.h
+SRCFILES := $(filter %.cpp,$(CODEFILES))
+HDRFILES := $(filter %.h,$(CODEFILES))
+OBJFILES := $(subst $(IDIR),$(ODIR),$(SRCFILES:%.cpp=%.o))
+
+$(ODIR)/%.o: $(addprefix $(IDIR)/,%.cpp %.h)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-sim: main.cpp $(OBJ)
+sim: main.cpp $(OBJFILES)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 .PHONY: clean
 
 clean:
 	rm -f sim *~
+	rm -r $(ODIR)/*
