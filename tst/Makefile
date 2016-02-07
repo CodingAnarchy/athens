@@ -1,6 +1,6 @@
 IDIR = ../lib
 CXX = g++
-CXXFLAGS = -Igtest_src -I$(IDIR) -std=c++11
+CXXFLAGS = -Igtest_src -I$(IDIR) -std=c++14
 
 ODIR = ../obj
 DEPS = rectangle.h

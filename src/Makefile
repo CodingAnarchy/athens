@@ -1,6 +1,6 @@
 IDIR = ../lib
 CXX = g++
-CXXFLAGS = -std=c++11 -I$(IDIR)
+CXXFLAGS = -std=c++14 -O3 -I$(IDIR) -I/usr/local/include
 ODIR = ../obj
 
 STRUCTURE := $(shell find $(IDIR) -type d)
