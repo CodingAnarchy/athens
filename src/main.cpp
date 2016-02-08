@@ -6,7 +6,7 @@
 #include <boost/numeric/ublas/io.hpp>
 using namespace std;
 
-#include "rectangle.h"
+#include "rectangle.hpp"
 
 void print_hello(int id){
   Rectangle rect = Rectangle(id, id * 2);

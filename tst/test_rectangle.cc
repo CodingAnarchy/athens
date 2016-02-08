@@ -1,4 +1,4 @@
-#include "rectangle.h"
+#include "rectangle.hpp"
 #include "gtest/gtest.h"
 
 TEST(Rectangle, DefaultConstructor) {

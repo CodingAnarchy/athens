@@ -8,10 +8,10 @@ CODEFILES := $(addsuffix /*,$(STRUCTURE))
 CODEFILES := $(wildcard $(CODEFILES))
 
 SRCFILES := $(filter %.cpp,$(CODEFILES))
-HDRFILES := $(filter %.h,$(CODEFILES))
+HDRFILES := $(filter %.hpp,$(CODEFILES))
 OBJFILES := $(subst $(IDIR),$(ODIR),$(SRCFILES:%.cpp=%.o))
 
-$(ODIR)/%.o: $(addprefix $(IDIR)/,%.cpp %.h)
+$(ODIR)/%.o: $(addprefix $(IDIR)/,%.cpp %.hpp)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
 sim: main.cpp $(OBJFILES)

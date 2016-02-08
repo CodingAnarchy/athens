@@ -1,4 +1,4 @@
-#include "rectangle.h"
+#include "rectangle.hpp"
 
 Rectangle::Rectangle(int w, int h) {
   set_values(w, h);
