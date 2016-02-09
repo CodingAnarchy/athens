@@ -14,15 +14,14 @@ OBJFILES := $(subst $(IDIR),$(ODIR),$(SRCFILES:%.cpp=%.o))
 $(ODIR)/%.o: $(addprefix $(IDIR)/,%.cpp %.h)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-
 all: gtest_main.cc gtest-all.o $(OBJFILES)
 	$(CXX) $(CXXFLAGS) -lpthread $^ -o run_tests
 
 $(ODIR)/%.o: $(IDIR)/%.cpp $(IDIR)/%.hpp
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-gtest-all.o:
-	$(CXX) $(CXXFLAGS) -c gtest_src/gtest/gtest-all.cc
+$(ODIR)/gtest-all.o:
+	$(CXX) $(CXXFLAGS) -c gtest_src/gmock-gtest-all.cc
 
 test: all
 	./run_tests
