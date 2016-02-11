@@ -2,7 +2,7 @@
 #define ENGINE_H
 
 class Engine {
-private:
+protected:
   double thrust;
 public:
   double get_thrust() { return thrust; }

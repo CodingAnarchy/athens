@@ -2,10 +2,13 @@
 #define VULCAN_H
 
 #include "rocket.hpp"
+#include "real_engine.hpp"
 
 class Vulcan : public Rocket {
 public:
-  double sum_forces(int thrust) { return thrust * 10.0; }
+  Vulcan() { engine = new RealEngine(); }
+  Vulcan(int id) { engine = new RealEngine(id); }
+  double sum_forces();
 };
 
 #endif

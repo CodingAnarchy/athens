@@ -4,10 +4,10 @@
 #include "engine.hpp"
 
 class Rocket {
-private:
-  Engine* e;
+protected:
+  Engine *engine;
 public:
-  virtual double sum_forces(int thrust) = 0;
+  virtual double sum_forces() = 0;
 };
 
 #endif
