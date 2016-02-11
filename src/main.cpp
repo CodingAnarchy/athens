@@ -6,11 +6,11 @@
 #include <boost/numeric/ublas/io.hpp>
 using namespace std;
 
-#include "rectangle.hpp"
+#include "vulcan.hpp"
 
 void print_hello(int id){
-  Rectangle rect = Rectangle(id, id * 2);
-  fprintf(stdout, "Thread %d made a rectangle with area %d.\n", id, rect.area());
+  Rocket *vulcan = new Vulcan();
+  fprintf(stdout, "Thread %d made a Vulcan rocket with force %f.\n", id, vulcan->sum_forces(id));
 }
 
 int main() {

@@ -7,8 +7,7 @@ class Rocket {
 private:
   Engine* e;
 public:
-  virtual double sum_forces() = 0;
-  virtual ~Rocket() {}
+  virtual double sum_forces(int thrust) = 0;
 };
 
 #endif
