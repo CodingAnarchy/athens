@@ -7,6 +7,8 @@
 using namespace std;
 using namespace boost::numeric::ublas;
 
+/* Matrix inversion routine.
+Uses lu_factorize and lu_substitute in uBLAS to invert a matrix */
 template<class T>
 bool invert_matrix(const matrix<T>& input, matrix<T>& inverse)
 {
