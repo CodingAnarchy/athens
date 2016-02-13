@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include "test_rectangle.cc"
 #include "test_vulcan.cc"
+#include "test_matrix_ops.cc"
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
