@@ -15,7 +15,7 @@ $(ODIR)/%.o: $(addprefix $(IDIR)/,%.cpp %.hpp)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
 sim: main.cpp $(OBJFILES)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
 .PHONY: clean
 
